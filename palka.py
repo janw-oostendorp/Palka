@@ -23,7 +23,7 @@ else:
         obj_window.set_display(display_obj)
         target_pixels = obj_window.calc_target_dimensions(args.x_start, args.y_start, args.width, args.height)
 
-        print(vars(display_obj))
+        print("target coordinates and dimension of the window")
         print(target_pixels)
 
         windows.wmctrl(

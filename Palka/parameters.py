@@ -1,17 +1,23 @@
 class Cli_Arguments():
     def __init__(self):
         import argparse
+        import textwrap
         self.y_start = 0
         self.x_start = 0
         self.width = 50
         self.height = 50
 
-        parser = argparse.ArgumentParser(description='Window placement by cli script')
-        parser.add_argument('--xoffset', type=int, help='X placement percentage 0 it left -0 is right')
-        parser.add_argument('--yoffset', type=int, help='Y placement percentage 0 it top -0 is top')
-        parser.add_argument('--width', type=int, help='Width of the window. Use negative to go back from the X point')
-        parser.add_argument('--height', type=int, help='Height of the window. Use negative to go back from the Y point')
-        parser.add_argument('--install', type=bool, help='Y placement percentage 0 it top -0 is top')
+        parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
+                                         description=textwrap.dedent('''\
+        Palka
+            Window positioning in Ubuntu
+        '''))
+        parser.add_argument('--xoffset', type=int, default=0, help='Percentage where the left border of the window should be on the screen. Value 0(left) to 100(right) defaults to 0')
+        parser.add_argument('--yoffset', type=int, default=0, help='Percentage where the top border of the window should be on the screen. Value 0(top) to 100(bottom) defaults to 0')
+        parser.add_argument('--width', type=int, help='Width of the window in percentages. Use negative percentages to flip it arround. Value -100 to 100 defaults to 50')
+        parser.add_argument('--height', type=int, help='Height of the window in percentages. Use negative percentages to flip it arround. Value -100 to 100 defaults to 50')
+        parser.add_argument('--install', type=bool, help='Incomplete, will setup the hotkeys')
+        #todo add a window ID param.
 
         self.rawargs = parser.parse_args()
 
