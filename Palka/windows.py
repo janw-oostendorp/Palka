@@ -70,6 +70,14 @@ class Window:
         return self.display
 
     def calc_target_dimensions(self, xoffset_percent, yoffset_percent, width_percent, height_percent):
+
+        # combined percentages over 100%? Invert them
+        if (xoffset_percent+width_percent) > 100:
+            width_percent = -width_percent
+
+        if (yoffset_percent + height_percent) > 100:
+            height_percent = -height_percent
+
         # X offset
         absolute_x_offset = self.display.x_start + (round(self.display.width * (xoffset_percent / 100)))
         absolute_y_offset = self.display.y_start + (round(self.display.height * (yoffset_percent / 100)))
