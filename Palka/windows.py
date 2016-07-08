@@ -50,6 +50,8 @@ class Window:
         self.y_end = self.y_start + self.height
         self.display = None
         self.process_id = None
+        self.x_mid = round(self.width / 2)
+        self.y_mid = round(self.height / 2)
 
     def set_process_id(self, process_id):
         self.process_id = process_id

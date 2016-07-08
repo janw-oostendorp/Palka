@@ -33,13 +33,13 @@ class Display:
         # X-axis?
         x_valid = False
         # window within X offset?
-        if self.x_start <= window.x_start <= self.x_end:
+        if self.x_start <= (window.x_start+window.x_mid) <= self.x_end:
             x_valid = True
 
         # Y-axis?
         y_valid = False
         # windows top within the top and bottom of given screen
-        if self.y_start <= window.y_start <= self.y_end:
+        if self.y_start <= (window.y_start+window.y_mid) <= self.y_end:
             y_valid = True
 
         if x_valid and y_valid:

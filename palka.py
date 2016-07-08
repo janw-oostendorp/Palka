@@ -34,5 +34,5 @@ else:
             target_pixels['height']
         )
 
-        # no need to continue if the relent screen is found
+        # no need to continue if the relevant screen is found
         break
